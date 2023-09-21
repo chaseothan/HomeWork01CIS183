@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_v_HW01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="41dp"
+        android:text="HW01_RGBTQ inclusive of all colors"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_v_RED"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/sb_v_redSeek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="28dp"
+        android:max="255"
+        android:min="0"
+        android:scrollbarSize="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_v_RED" />
+
+    <SeekBar
+        android:id="@+id/sb_v_greenSeek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="28dp"
+        android:max="255"
+        android:min="0"
+        android:scrollbarSize="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_v_GREEN" />
+
+    <SeekBar
+        android:id="@+id/sb_v_blueSeek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="28dp"
+        android:max="255"
+        android:min="0"
+        android:scrollbarSize="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/tv_v_RED"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="RED      :"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_v_redValue"
+        app:layout_constraintStart_toStartOf="@+id/sb_v_redSeek" />
+
+    <TextView
+        android:id="@+id/tv_v_GREEN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:text="GREEN :"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_v_greenValue"
+        app:layout_constraintStart_toStartOf="@+id/sb_v_redSeek" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:text="BLUE    :"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_v_blueValue"
+        app:layout_constraintStart_toStartOf="@+id/sb_v_greenSeek" />
+
+    <TextView
+        android:id="@+id/tv_v_redValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="13dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/tv_v_RED"
+        app:layout_constraintTop_toBottomOf="@+id/tv_v_HW01" />
+
+    <TextView
+        android:id="@+id/tv_v_greenValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/tv_v_GREEN"
+        app:layout_constraintTop_toBottomOf="@+id/sb_v_redSeek" />
+
+    <TextView
+        android:id="@+id/tv_v_blueValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/sb_v_greenSeek" />
+
+    <Button
+        android:id="@+id/btn_v_addColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Add Color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sb_v_blueSeek" />
+
+    <ListView
+        android:layout_width="0dp"
+        android:layout_height="418dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_v_addColor" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
