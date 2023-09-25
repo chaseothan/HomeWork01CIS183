@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_j_greenValue;
     TextView tv_j_blueValue;
     Button btn_j_addColor;
-
+    int red;
+    int green;
+    int blue;
 
 
     @Override
@@ -48,9 +50,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b)
             {
+                red = i;
 
                 tv_j_redValue.setText("" + String.valueOf(i));
                 //make the red value display the progress of the bar
+                changeBackgroundColor();
             }
 
             @Override
@@ -71,7 +75,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b)
             {
+                green = i;
+
                 tv_j_greenValue.setText("" + String.valueOf(i));
+
+                changeBackgroundColor();
             }
 
             @Override
@@ -92,7 +100,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b)
             {
+                blue = i;
+
                 tv_j_blueValue.setText("" + String.valueOf(i));
+
+                changeBackgroundColor();
             }
 
             @Override
@@ -105,6 +117,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void changeBackgroundColor()
+    {
+        //set background red to global var red
+
+
     }
 
 
