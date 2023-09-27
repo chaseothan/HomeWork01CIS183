@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="41dp"
-        android:text="HW01_RGBTQ"
+        android:text="HW01_RGB"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/tv_v_RED"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,6 +28,7 @@
         android:layout_marginEnd="28dp"
         android:max="255"
         android:min="0"
+        android:progress="255"
         android:scrollbarSize="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +43,7 @@
         android:layout_marginEnd="28dp"
         android:max="255"
         android:min="0"
+        android:progress="255"
         android:scrollbarSize="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +58,7 @@
         android:layout_marginEnd="28dp"
         android:max="255"
         android:min="0"
+        android:progress="255"
         android:scrollbarSize="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginTop="13dp"
-        android:text="0"
+        android:text="255"
         app:layout_constraintStart_toEndOf="@+id/tv_v_RED"
         app:layout_constraintTop_toBottomOf="@+id/tv_v_HW01" />
 
@@ -103,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
-        android:text="0"
+        android:text="255"
         app:layout_constraintStart_toEndOf="@+id/tv_v_GREEN"
         app:layout_constraintTop_toBottomOf="@+id/sb_v_redSeek" />
 
@@ -113,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
-        android:text="0"
+        android:text="255"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/sb_v_greenSeek" />
 
@@ -128,6 +132,7 @@
         app:layout_constraintTop_toBottomOf="@+id/sb_v_blueSeek" />
 
     <ListView
+        android:id="@+id/lv_v_arrayOfColor"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
@@ -144,7 +149,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="313dp"
-        android:text="FFFFFFFF"
+        android:text="ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btn_v_addColor"

@@ -1,5 +1,7 @@
 package com.example.a1homework183;
 
+import android.widget.TextView;
+
 public class ColorInfo
 {
     //instant variables
@@ -8,6 +10,10 @@ public class ColorInfo
     private int green;
 
     private int blue;
+    private String hexaDecimal;
+
+
+
 
     //getters and setters
     public int getRed() {return red;}
@@ -37,6 +43,10 @@ public class ColorInfo
         this.blue = blue;
     }
 
+    public ColorInfo()
+    {
+
+    }
 
 
     public ColorInfo(int r,int g, int b)
@@ -48,12 +58,15 @@ public class ColorInfo
 
     }
 
+    public void setHexaDecimal(String hexaDecimal) {
+        this.hexaDecimal = hexaDecimal;
+    }
 
     public String getHexaDecimal() {
         return hexaDecimal;
     }
 
-    private String hexaDecimal;
+
 
 
 

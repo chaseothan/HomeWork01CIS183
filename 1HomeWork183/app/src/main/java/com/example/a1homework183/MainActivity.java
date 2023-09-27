@@ -1,11 +1,18 @@
 package com.example.a1homework183;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.ActivityManager;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -17,15 +24,17 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_j_greenValue;
     TextView tv_j_blueValue;
     Button btn_j_addColor;
-    int red;
-    int green;
-    int blue;
-    String hexaDecimal[] = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
-    ColorInfo b1 = new ColorInfo(red,green,blue);
-    //how to convert RGB
-    //number 255 for example divide by 16 15.9375
-    //15 is f some how idk
-    //then .9375 * 16 = 15 and 15 is f again? FF = 255
+    TextView tv_j_hexadecimal;
+    int red = 255;
+    int green = 255;
+    int blue = 255;
+    ConstraintLayout li;
+    String hexValueR = "ff";
+    String hexValueG = "ff";
+    String hexValueB = "ff";
+    ArrayList<ColorInfo> arrayOfColors;
+    ColorInfoListAdapter adapter;
+    ListView lv_j_arrayOfColor;
 
 
     @Override
@@ -41,7 +50,14 @@ public class MainActivity extends AppCompatActivity {
     tv_j_redValue = findViewById(R.id.tv_v_redValue);
     tv_j_greenValue = findViewById(R.id.tv_v_greenValue);
     tv_j_blueValue = findViewById(R.id.tv_v_blueValue);
+    tv_j_hexadecimal = findViewById(R.id.tv_v_hexidecimal);
     btn_j_addColor = findViewById(R.id.btn_v_addColor);
+    lv_j_arrayOfColor = findViewById(R.id.lv_v_arrayOfColor);
+    li = findViewById(R.id.Background);
+
+    arrayOfColors = new ArrayList<ColorInfo>();
+
+
 
 
 
@@ -50,8 +66,11 @@ public class MainActivity extends AppCompatActivity {
     seekBarEventGreen();
     seekBarEventBlue();
 
+    registerButtonEventHandler();
+
     }
     //the seek bar event for RED
+
     public void seekBarEventRed()
     {
         sb_j_seekRed.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -59,11 +78,17 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b)
             {
                 red = i;
-                b1.setRed(i);
+
+
 
                 tv_j_redValue.setText("" + String.valueOf(i));
                 //make the red value display the progress of the bar
                 changeBackgroundColor();
+
+                hexValueR = Integer.toHexString(red);
+
+
+                makeHexadecimal();
             }
 
             @Override
@@ -84,13 +109,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b)
             {
+
                 green = i;
 
-                b1.setGreen(i);
+
 
                 tv_j_greenValue.setText("" + String.valueOf(i));
 
                 changeBackgroundColor();
+
+                hexValueG = Integer.toHexString(green);
+
+                makeHexadecimal();
             }
 
             @Override
@@ -113,11 +143,15 @@ public class MainActivity extends AppCompatActivity {
             {
                 blue = i;
 
-                b1.setBlue(i);
-
                 tv_j_blueValue.setText("" + String.valueOf(i));
 
                 changeBackgroundColor();
+
+
+
+                hexValueB = Integer.toHexString(blue);
+
+                makeHexadecimal();
             }
 
             @Override
@@ -136,11 +170,67 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeBackgroundColor()
     {
+        //but i think convert it first to hex
         //set background red to global var red
 
+        li.setBackgroundColor(Color.rgb(red,green,blue));
 
     }
 
+    public void makeHexadecimal()
+    {
+        tv_j_hexadecimal.setText("" + String.valueOf(hexValueR)+"" + String.valueOf(hexValueG)+"" + String.valueOf(hexValueB));
 
+    }
 
+    public void registerButtonEventHandler()
+    {
+        btn_j_addColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addColor();
+                resetGUI();
+                displayListOfColors();
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    public void addColor()
+    {
+        ColorInfo newColor = new ColorInfo();
+
+        String red = tv_j_redValue.getText().toString();
+        String green = tv_j_greenValue.getText().toString();
+        String blue = tv_j_blueValue.getText().toString();
+        String hexaDecimal =tv_j_hexadecimal.getText().toString();
+
+        newColor.setRed(Integer.parseInt(red));
+        newColor.setGreen(Integer.parseInt(green));
+        newColor.setBlue(Integer.parseInt(blue));
+        newColor.setHexaDecimal(hexaDecimal);
+
+        arrayOfColors.add(newColor);
+
+        fillListView();
+
+    }
+
+    public void resetGUI()
+    {
+
+    }
+    public void displayListOfColors()
+    {
+        for (int i = 0; i < arrayOfColors.size(); i++)
+        {
+
+        }
+    }
+    public void fillListView()
+    {
+        adapter = new ColorInfoListAdapter(this, arrayOfColors);
+
+        lv_j_arrayOfColor.setAdapter(adapter);
+    }
 }
