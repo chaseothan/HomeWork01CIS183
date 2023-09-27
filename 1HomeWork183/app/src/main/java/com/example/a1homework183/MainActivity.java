@@ -20,6 +20,12 @@ public class MainActivity extends AppCompatActivity {
     int red;
     int green;
     int blue;
+    String hexaDecimal[] = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
+    ColorInfo b1 = new ColorInfo(red,green,blue);
+    //how to convert RGB
+    //number 255 for example divide by 16 15.9375
+    //15 is f some how idk
+    //then .9375 * 16 = 15 and 15 is f again? FF = 255
 
 
     @Override
@@ -37,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     tv_j_blueValue = findViewById(R.id.tv_v_blueValue);
     btn_j_addColor = findViewById(R.id.btn_v_addColor);
 
+
+
     //Event for seek bar red I forgot what this thing is called i think its called calling it
     seekBarEventRed();
     seekBarEventGreen();
@@ -51,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b)
             {
                 red = i;
+                b1.setRed(i);
 
                 tv_j_redValue.setText("" + String.valueOf(i));
                 //make the red value display the progress of the bar
@@ -77,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
             {
                 green = i;
 
+                b1.setGreen(i);
+
                 tv_j_greenValue.setText("" + String.valueOf(i));
 
                 changeBackgroundColor();
@@ -102,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
             {
                 blue = i;
 
+                b1.setBlue(i);
+
                 tv_j_blueValue.setText("" + String.valueOf(i));
 
                 changeBackgroundColor();
@@ -119,12 +132,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+
     public void changeBackgroundColor()
     {
         //set background red to global var red
 
 
     }
+
 
 
 }

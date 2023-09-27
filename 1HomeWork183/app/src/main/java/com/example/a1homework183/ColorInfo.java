@@ -2,10 +2,15 @@ package com.example.a1homework183;
 
 public class ColorInfo
 {
+    //instant variables
+    private int red;
 
-    public int getRed() {
-        return red;
-    }
+    private int green;
+
+    private int blue;
+
+    //getters and setters
+    public int getRed() {return red;}
 
     public void setRed(int red)
     {
@@ -32,11 +37,7 @@ public class ColorInfo
         this.blue = blue;
     }
 
-    private int red;
 
-    private int green;
-
-    private int blue;
 
     public ColorInfo(int r,int g, int b)
     {
@@ -46,17 +47,13 @@ public class ColorInfo
         blue = b;
 
     }
-    public ColorInfo()
 
-    {
 
+    public String getHexaDecimal() {
+        return hexaDecimal;
     }
 
-    public String getHexDecimal() {
-        return hexDecimal;
-    }
-
-    private String hexDecimal;
+    private String hexaDecimal;
 
 
 

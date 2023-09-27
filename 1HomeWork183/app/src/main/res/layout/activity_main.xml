@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="41dp"
-        android:text="HW01_RGB"
+        android:text="HW01_RGBTQ"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/tv_v_RED"
         app:layout_constraintTop_toTopOf="parent" />
