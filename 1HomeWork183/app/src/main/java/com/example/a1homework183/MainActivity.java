@@ -14,7 +14,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-
+//chase miracle
+//Homework_02
+//september 30th
+//RGB app to store colors 
 public class MainActivity extends AppCompatActivity {
 
     SeekBar sb_j_seekRed;
@@ -218,7 +221,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void resetGUI()
     {
-
+        red = 255;
+        green = 255;
+        blue = 255;
+        li.setBackgroundColor(Color.rgb(red,green,blue));
     }
     public void displayListOfColors()
     {
