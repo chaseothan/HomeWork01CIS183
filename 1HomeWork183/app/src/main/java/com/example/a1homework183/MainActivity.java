@@ -3,10 +3,12 @@ package com.example.a1homework183;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SeekBar;
@@ -38,8 +40,12 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<ColorInfo> arrayOfColors;
     ColorInfoListAdapter adapter;
     ListView lv_j_arrayOfColor;
+    TextView tv_j_cusRed;
+    TextView tv_j_cusBlue;
+    TextView tv_j_cusGreen;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
     btn_j_addColor = findViewById(R.id.btn_v_addColor);
     lv_j_arrayOfColor = findViewById(R.id.lv_v_arrayOfColor);
     li = findViewById(R.id.Background);
+    tv_j_cusRed = findViewById(R.id.tv_v_cus_red);
+    tv_j_cusBlue = findViewById(R.id.tv_v_cus_blue);
+    tv_j_cusGreen = findViewById(R.id.tv_v_cus_green);
 
     arrayOfColors = new ArrayList<ColorInfo>();
 
@@ -70,8 +79,31 @@ public class MainActivity extends AppCompatActivity {
     seekBarEventBlue();
 
     registerButtonEventHandler();
+    listViewEvent();
 
     }
+
+    public void listViewEvent()
+    {
+        lv_j_arrayOfColor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+
+                blue = Integer.parseInt(tv_j_cusBlue.toString());
+                green = Integer.parseInt(tv_j_cusGreen.toString());
+                red = Integer.parseInt(tv_j_cusRed.toString());
+
+                changeBackgroundColor();
+
+
+            }
+        });
+    }
+
+
+
     //the seek bar event for RED
 
     public void seekBarEventRed()
@@ -229,6 +261,9 @@ public class MainActivity extends AppCompatActivity {
         green = 255;
         blue = 255;
         li.setBackgroundColor(Color.rgb(red,green,blue));
+        sb_j_seekRed.setProgress(255);
+        sb_j_seekGreen.setProgress(255);
+        sb_j_seekBlue.setProgress(255);
     }
     //displaying the colors that the user picked
     public void displayListOfColors()
