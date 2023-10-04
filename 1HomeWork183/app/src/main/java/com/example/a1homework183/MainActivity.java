@@ -179,13 +179,13 @@ public class MainActivity extends AppCompatActivity {
         li.setBackgroundColor(Color.rgb(red,green,blue));
 
     }
-
+//making the sliders into hexa
     public void makeHexadecimal()
     {
         tv_j_hexadecimal.setText("" + String.valueOf(hexValueR)+"" + String.valueOf(hexValueG)+"" + String.valueOf(hexValueB));
 
     }
-
+//the button event
     public void registerButtonEventHandler()
     {
         btn_j_addColor.setOnClickListener(new View.OnClickListener() {
@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+//adding it to array
     public void addColor()
     {
         ColorInfo newColor = new ColorInfo();
@@ -218,14 +218,19 @@ public class MainActivity extends AppCompatActivity {
         fillListView();
 
     }
-
+//reset all of the sliders and the colors and what not
     public void resetGUI()
     {
+        sb_j_seekRed.setProgress(255);
+        sb_j_seekBlue.setProgress(255);
+        sb_j_seekGreen.setProgress(255);
+
         red = 255;
         green = 255;
         blue = 255;
         li.setBackgroundColor(Color.rgb(red,green,blue));
     }
+    //displaying the colors that the user picked
     public void displayListOfColors()
     {
         for (int i = 0; i < arrayOfColors.size(); i++)
@@ -233,6 +238,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+    //filling the list view
     public void fillListView()
     {
         adapter = new ColorInfoListAdapter(this, arrayOfColors);

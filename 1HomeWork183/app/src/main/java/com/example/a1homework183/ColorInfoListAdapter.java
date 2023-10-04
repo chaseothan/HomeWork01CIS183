@@ -16,7 +16,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 public class ColorInfoListAdapter extends BaseAdapter {
-
+//the adapter that was shown in class implemented to my phone code
     Context context;
     ArrayList<ColorInfo> arrayOfColors;
     public ColorInfoListAdapter(Context c, ArrayList<ColorInfo> ls)
