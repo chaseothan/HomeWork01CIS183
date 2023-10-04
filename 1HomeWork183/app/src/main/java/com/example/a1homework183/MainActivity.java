@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -90,12 +91,20 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
+                Log.d("asdsad",arrayOfColors.get(i).getBlue() +"");
+                blue = arrayOfColors.get(i).getBlue();
+                red = arrayOfColors.get(i).getRed();
+                green = arrayOfColors.get(i).getGreen();
 
-                blue = Integer.parseInt(tv_j_cusBlue.toString());
-                green = Integer.parseInt(tv_j_cusGreen.toString());
-                red = Integer.parseInt(tv_j_cusRed.toString());
+
+                tv_j_hexadecimal.setText(arrayOfColors.get(i).getHexaDecimal());
 
                 changeBackgroundColor();
+
+                sb_j_seekRed.setProgress(red);
+                sb_j_seekBlue.setProgress(blue);
+                sb_j_seekGreen.setProgress(green);
+
 
 
             }
